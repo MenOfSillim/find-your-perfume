@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.springriders.perfume.mapper.CommonMapper">
+	<insert id="insPerfume" parameterType="PerfumeVO">
+		INSERT INTO t_perfume
+		(p_price, p_size, p_brand, p_nm, p_pic)
+		VALUES
+		(#{p_price}, #{p_size}, #{p_brand}, #{p_nm}, #{p_pic})
+	</insert>
+	<insert id="insPerfumeNote" parameterType="NoteCodeVO">
+		INSERT INTO t_note
+		(i_p, nt_d_c)
+		VALUES
+		(#{i_p}, #{nt_d_c})
+	</insert>
+	<select id="selBrandCodeList" parameterType="BrandCodeVO" resultType="BrandCodeVO">
+		SELECT p_brand, b_nm_eng, b_nm_kor FROM c_code_brand
+	</select>
+	<select id="selNoteCodeList" parameterType="NoteCodeVO" resultType="NoteCodeVO">
+		SELECT nt_d_c, nt_d_nm FROM c_nt_d
+	</select>
+	<select id="selUserNoteList" parameterType="PerfumePARAM" resultType="NoteCodeVO">
+		SELECT A.nt_m_c, B.nt_m_nm_kor
+		FROM t_user_favorite_note A
+		INNER JOIN c_nt_m B
+		ON A.nt_m_c = B.nt_m_c
+		WHERE i_user = #{i_user}
+	</select>
+	<select id="selRecPerfumeList" parameterType="NoteCodeVO" resultType="PerfumeDMI">
+		SELECT A.i_p, B.p_nm, B.p_price, B.p_pic, B.p_size, C.b_nm_eng, COUNT(A.i_p) AS favorite_cnt
+		FROM t_user_favorite_perfume A
+		INNER JOIN t_perfume B
+		ON A.i_p = B.i_p
+		INNER JOIN c_code_brand C
+		ON B.p_brand = C.p_brand
+		INNER JOIN t_note D
+		ON B.i_p = D.i_p
+		INNER JOIN c_nt_d E
+		ON D.nt_d_c = E.nt_d_c
+		INNER JOIN c_nt_m F
+		ON E.nt_m_c = F.nt_m_c
+		WHERE F.nt_m_c = #{nt_m_c}
+		GROUP BY A.i_p
+		ORDER BY favorite_cnt DESC
+		LIMIT 0, #{sliders_per_view}
+	</select>
+	<select id="selTopPerfumeList" parameterType="PerfumePARAM" resultType="PerfumeDMI">
+		SELECT A.i_p, B.p_nm, B.p_price, B.p_pic, B.p_size, C.b_nm_eng, COUNT(A.i_p) AS favorite_cnt
+		FROM t_user_favorite_perfume A
+		INNER JOIN t_perfume B
+		ON A.i_p = B.i_p
+		INNER JOIN c_code_brand C
+		ON B.p_brand = C.p_brand
+		GROUP BY i_p 
+		ORDER BY favorite_cnt DESC
+		LIMIT 0,5;
+	</select>
+	<select id="selPerfumeList" parameterType="PerfumePARAM" resultType="PerfumeDMI">
+		<if test="p_brand > 0">
+		SELECT i_p, p_nm, p_size, p_price, p_pic, p_brand
+		FROM t_perfume
+		WHERE p_brand = #{p_brand}
+		</if>
+		<if test="p_brand == 0">
+		SELECT A.i_p, A.p_nm, A.p_price, B.b_nm_eng, A.p_size, A.p_pic, C.i_user
+		FROM t_perfume A
+		LEFT JOIN c_code_brand B
+		ON A.p_brand = B.p_brand
+		LEFT JOIN t_user_favorite_perfume C
+		ON A.i_p = C.i_p
+		AND C.i_user = #{i_user}		
+		</if> 
+	</select>
+	<select id="selPerfumeNoteList" parameterType="PerfumePARAM" resultType="NoteCodeVO">
+		SELECT A.i_p, B.nt_d_nm, B.nt_d_nm_kor
+		FROM t_note A
+		INNER JOIN c_nt_d B
+		ON A.nt_d_c = B.nt_d_c
+		WHERE A.i_p = #{i_p}
+	</select>
+	<select id="selNoteList" parameterType="NoteCodeVO" resultType="NoteCodeVO">
+		SELECT nt_d_c, nt_d_nm, nt_d_nm_kor FROM c_nt_d;
+	</select>
+	<select id="selPerfumePk" parameterType="PerfumeVO" resultType="PerfumeVO">
+		SELECT MAX(i_p) as i_p FROM t_perfume
+	</select>
+	<select id="selPerfume" parameterType="PerfumePARAM" resultType="PerfumeDMI">
+		SELECT A.i_p, A.p_nm, A.p_price, b_nm_eng, A.p_size, A.p_pic, C.i_user
+		FROM t_perfume A
+		LEFT JOIN c_code_brand B
+		ON A.p_brand = B.p_brand
+		LEFT JOIN t_user_favorite_perfume C
+		ON A.i_p = C.i_p
+		AND C.i_user = #{i_user}
+		WHERE A.i_p = #{i_p}
+	</select>
+	<select id="selBrandEnm" parameterType="perfumePARAM" resultType="perfumeDMI">
+		SELECT b_nm_eng FROM c_code_brand 
+		WHERE b_nm_eng like '${b_nm_initial}%'
+	</select>
+	<select id="selBrandFullNm" parameterType="perfumeDMI" resultType="perfumeDMI">
+		SELECT b_nm_eng FROM c_code_brand 
+	</select>
+	<select id="selBrandFullAp" parameterType="perfumeDMI" resultType="perfumeDMI">
+		select A.i_p, A.p_nm, A.p_brand, A.p_price, B.b_nm_eng, A.p_size, A.p_pic
+		from t_perfume A
+		inner join c_code_brand B
+		on A.p_brand = B.p_brand 
+		where B.b_nm_eng like '${b_nm_eng}'
+	</select>
+	<select id="selBrandAlphabet" parameterType="perfumePARAM" resultType="perfumeDMI">
+		SELECT A.i_p, A.p_brand, A.p_nm, A.p_price, B.b_nm_eng, A.p_size, A.p_pic
+		FROM t_perfume A
+		INNER JOIN c_code_brand B
+		ON A.p_brand = B.p_brand
+		<if test="b_nm_initial == 'ETC' and b_nm_initial != 'ALL'">
+			WHERE B.b_nm_eng LIKE '${b_nm_initial}%'
+		</if>
+		<if test="b_nm_initial != 'ETC' and b_nm_initial != 'ALL'">
+			WHERE B.b_nm_eng NOT IN ('ETC')
+			AND B.b_nm_eng LIKE '${b_nm_initial}%'
+		</if>
+	</select>
+	<select id="selBrandNm" parameterType="perfumePARAM" resultType="perfumeDMI">
+		SELECT A.p_brand, A.b_nm_eng FROM c_code_brand A
+		INNER JOIN (
+			SELECT distinct p_brand FROM t_perfume
+		) B
+		ON A.p_brand = B.p_brand
+		<if test="b_nm_initial=='ETC'">
+			WHERE A.b_nm_eng = 'ETC'
+		</if> 
+		<if test="b_nm_initial !='ETC' and b_nm_initial != 'ALL'">
+			WHERE A.b_nm_eng NOT IN ('ETC')
+			AND A.b_nm_eng LIKE '${b_nm_initial}%'
+		</if>
+		ORDER BY A.b_nm_eng
+	</select>
+	<select id="selPerfumePic" parameterType="PerfumePARAM" resultType="perfumeDMI">
+		SELECT i_p, p_pic FROM t_perfume
+		WHERE i_p = #{i_p}
+	</select>
+	<select id="ajaxSelNoteList" parameterType="PerfumePARAM" resultType="NoteCodeVO">
+		SELECT A.nt_d_c, B.i_p, B.p_nm, B.p_price, B.p_pic, B.p_size, D.nt_m_c, E.b_nm_eng, E.b_nm_kor, A.nt_d_c
+		FROM t_note A
+		INNER JOIN t_perfume B
+		ON A.i_p = B.i_p
+		INNER JOIN c_nt_d C
+		ON A.nt_d_c = C.nt_d_c
+		INNER JOIN c_nt_m D
+		ON D.nt_m_c = C.nt_m_c
+		INNER JOIN c_code_brand E
+		ON B.p_brand = E.p_brand
+		WHERE (A.nt_d_c = #{nt_d_c})
+	</select>
+	<delete id="delPerfumeNote" parameterType="PerfumePARAM">
+		DELETE FROM t_note WHERE i_p = #{i_p}
+	</delete>
+	<delete id="delPerfume" parameterType="PerfumePARAM">
+		DELETE FROM t_perfume WHERE i_p = #{i_p}
+	</delete>
+</mapper>

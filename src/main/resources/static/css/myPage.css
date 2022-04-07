@@ -1,0 +1,269 @@
+@charset "UTF-8";
+
+hr {
+	margin: 50px 0;
+}
+
+.myPageContainer {
+	display: flex;
+	width: 100%;
+	height: 100%;
+}
+
+.myPageContainer > #myPageLeft {
+	width: 300px;
+	min-width: 300px;
+	height: 100%;
+	padding: 15px;
+	background-color: lightgray;
+}
+
+.myPageContainer > #myPageRight {
+	padding: 50px 100px;
+	width: 100%;
+}
+
+.myPageContainer > #myPageRight > #uptFrm > #sectionProfile {
+	display: flex;
+	justify-content: space-between;
+}
+
+.myPageContainer > #myPageRight > #uptFrm > #sectionProfile > #containerImg {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 200px;
+	margin: 30px 50px 0 250px;
+}
+
+.myPageContainer > #myPageRight > #uptFrm > #sectionProfile > #containerImg > #profileImg {
+	width: 200px;
+	height: 200px;
+	border: 1px solid black;
+	border-radius: 100px;
+	overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.myPageContainer > #myPageRight > #uptFrm > #sectionProfile > #containerImg > #profileImg > img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.myPageContainer > #myPageRight > #uptFrm > #sectionProfile > #containerInfo {
+	padding: 0px 50px 20px 150px;
+	min-width: 850px;
+	width: 70%;
+	position: relative;
+}
+
+.myPageContainer > #myPageRight > #uptFrm > #sectionProfile > #containerInfo > #infoContents {
+	display: flex;
+}
+
+.myPageContainer > #myPageRight > #uptFrm > #sectionProfile > #containerInfo > #infoContents >
+#nickNameBox {
+	margin-right: 50px;
+}
+
+.myPageContainer > #myPageRight > #uptFrm > #sectionProfile > #containerInfo > #infoContents >
+#nickNameBox > #r_dt_data {
+	line-height: 30px;	
+}
+
+.myPageContainer > #myPageRight > #uptFrm > #sectionProfile > #containerInfo > #submitProfile {
+	position: absolute;
+	bottom: 0;
+	right: 160px;
+}
+
+.myPageContainer > #myPageRight > #sectionFavPerfume > #title {
+	width: 80px;
+	height: 30px;
+	line-height: 30px;
+	border: 1px solid #333333;
+	font-weight: bold;
+	box-sizing: border-box;
+	text-align: center;
+	margin: 0 0 20px 100px;
+}
+
+.myPageContainer > #myPageRight > #sectionFavPerfume > #detailSection {
+	display: flex;
+	flex-wrap: wrap;
+	margin: 30px 0 0 120px;
+}
+
+.myPageContainer > #myPageRight > #sectionFavPerfume > #detailSection > #emptyMsg {
+	padding-right: 50px;
+	margin: 30px auto;
+	width: 1300px;
+	height: 200px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 3em;
+	color: #c0c0c0;
+}
+
+.myPageContainer > #myPageRight > #sectionFavPerfume > #detailSection > #favPerfume {
+	display: flex;
+	flex-direction: column;
+	width: 260px;	
+	margin: 0 20px 50px;
+	text-align: center;
+    cursor: pointer;
+}
+
+.myPageContainer > #myPageRight > #sectionFavPerfume > #detailSection > #favPerfume > #favPerfumeImg > img:hover {
+   	opacity: 0.5;
+    filter: grayscale(100%);
+    transition: 0.2s;	
+}
+
+.myPageContainer > #myPageRight > #sectionFavPerfume > #detailSection > #favPerfume > #favPerfumeImg {
+	margin: 0 20px; 
+	width: 200px;
+	height: 250px;
+}
+
+.myPageContainer > #myPageRight > #sectionFavPerfume > #detailSection > #favPerfume > #favPerfumeImg > .perfumeImg {
+	width: 200px;
+	height: 200px;
+}
+
+.myPageContainer > #myPageRight > #sectionFavPerfume > #detailSection > #favPerfume > #favPerfumeDetail > p {
+	margin: 5px 0;
+}
+
+.myPageContainer > #myPageRight > #sectionFavPerfume > #detailSection > #favPerfume > #favPerfumeDetail > p:nth-child(1) {
+	font-weight: bolder;
+}
+
+.myPageContainer > #myPageRight > #sectionFavPerfume > #detailSection > #favPerfume > #favPerfumeDetail > #p_nm {
+	width: 260px;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+.myPageContainer > #myPageRight > #sectionFavPerfume > #detailSection > #favPerfume > #favPerfumeDetail > div > #p_size {
+	line-height: 26px;
+	margin-right: 10px;
+} 
+
+.myPageContainer > #myPageRight > #sectionFavPerfume > #detailSection > #favPerfume > #containerPerfumeInfo {
+	width: 70%;
+	min-width: 850px;
+	padding: 0px 50px 20px 50px;
+	position: relative;
+}
+
+.myPageContainer > #myPageRight > #sectionFavPerfume > #detailSection > #favPerfume > #containerPerfumeInfo > #submitPerfume {
+	position: absolute;
+	bottom: 0;
+	right: 100px;
+}
+
+.myPageContainer > #myPageRight > #sectionFavPerfume > #detailSection > #favPerfume > #containerPerfumeInfo > #mainInfo {
+	display: flex;
+	flex-direction: row;
+}
+
+.myPageContainer > #myPageRight > #sectionFavPerfume > #detailSection > #favPerfume > #containerPerfumeInfo > #mainInfo > div {
+	margin-right: 15px;
+}
+
+.myPageContainer > #myPageRight > #sectionFavPerfume > #detailSection > #favPerfume > #containerPerfumeInfo > #notesInfo {
+	margin-top: 20px;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.myPageContainer > #myPageRight > #sectionFavPerfume > #detailSection > #favPerfume > #containerPerfumeInfo > #notesInfo > div{
+	width: 20%;
+	margin: 0 10px 10px 0;
+}
+
+.myPageContainer > #myPageRight > #sectionFavNote > #title {
+    width: 80px;
+    height: 30px;
+    line-height: 30px;
+    border: 1px solid #333333;
+    font-weight: bold;
+    box-sizing: border-box;
+    text-align: center;
+    margin: 0 0 20px 100px;
+}
+
+.myPageContainer > #myPageRight > #sectionFavNote > #noteContainer {
+	margin: 30px auto;
+	width: 1300px;
+	height: 200px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.myPageContainer > #myPageRight > #sectionFavNote > #noteContainer > #noteList {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;	
+}
+
+.myPageContainer > #myPageRight > #sectionFavNote > #noteContainer > #noteList > div {
+	margin-bottom: 30px;
+	display: flex;	
+}
+
+.myPageContainer > #myPageRight > #sectionFavNote > #noteContainer > #noteList > div > div {
+	width: 200px;
+	font-size: 1.2em;
+    position: relative;
+    display: inline-block;
+}
+
+.myPageContainer > #myPageRight > #sectionFavNote > #noteContainer > #noteList > div > div > label {
+    display: block;
+}
+
+.myPageContainer > #myPageRight > #sectionFavNote > #noteContainer > #noteList > div > div > label > 
+input[type="checkbox"] {
+	width: 15px;
+	height: 15px;
+}
+
+
+.myPageContainer > #myPageRight > #sectionFavNote > #noteContainer > #noteList > div > div > label:hover + p.arrow_box {
+ 	display: block;
+}
+
+.myPageContainer > #myPageRight > #sectionFavNote > #noteContainer > #noteList > div > div > .arrow_box {
+ 	display: none;
+  	position: absolute;
+  	width: 200px;
+  	padding: 8px;
+  	left: 10px;
+  	border-radius: 8px;
+  	background: #333;
+  	color: #fff;
+  	font-size: 14px;
+  	z-index: 999;
+  	text-align: center;
+}
+
+.myPageContainer > #myPageRight > #sectionFavNote > #noteContainer > #noteList > div > div > .arrow_box:after {
+	 position: absolute;
+	 bottom: 100%;
+	 left: 75px;
+	 width: 0;
+	 height: 0;
+	 margin-left: -10px;
+	 border: solid transparent;
+  	 border-color: rgba(51, 51, 51, 0);
+	 border-bottom-color: #333;
+	 border-width: 10px;
+	 pointer-events: none;
+	 content: " ";
+}

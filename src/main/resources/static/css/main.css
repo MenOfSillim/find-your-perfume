@@ -1,0 +1,274 @@
+@charset "UTF-8";
+
+.show {display:block;} /*보여주기*/
+.hide {display:none;} /*숨기기*/
+
+#brandContainer {
+	display: flex;
+	flex-direction: column;
+	margin-top: 50px;
+}
+
+#container > section > #mainContainer > #commonContainer {
+	display: flex;
+}
+
+#container > section > #mainContainer > #commonContainer > #sidebar {
+    width: 300px;
+    min-width: 300px;
+    height: 100%;
+    padding: 15px;
+}
+
+#container > section > #mainContainer > #commonContainer > #sidebar > #loginContainer {
+	display: flex;
+	justify-content: center;
+}
+
+#container > section > #mainContainer > #commonContainer > #sidebar > #selBrandAlphabet {
+	width: 268px;
+	height: 120px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+#container > section > #mainContainer > #commonContainer > #sidebar > #selBrandAlphabet > div {
+	width: 240px;
+	display: flex;
+	flex-wrap: wrap;
+
+}
+
+#container > section > #mainContainer > #commonContainer > #sidebar > #selBrandAlphabet > div > p {
+    width: 26px;
+    margin: 5px 4px;
+    font-size: 0.9em;
+    cursor: pointer;
+    text-align: center;
+}
+
+#container > section > #mainContainer > #commonContainer > #sidebar > #selBrandAlphabet > div > p:hover {
+	font-weight: bolder;
+	color: #4a4a4a;	
+}
+
+#container > section > #mainContainer > #commonContainer > #sidebar > #selBrand {
+	margin: 30px 0 50px 25px;
+}
+
+#container > section > #mainContainer > #commonContainer > #sidebar > #selBrand > span {
+	font-size: 0.8em;
+	cursor: pointer;
+}
+
+#container > section > #mainContainer > #commonContainer > #sidebar > #selBrand > span:hover {
+	font-weight: bolder;
+	color: #4a4a4a;	
+}
+
+#container > section > #mainContainer > #commonContainer > #mainContainer {
+	width: 100%;
+	height: 100%;
+}
+
+#topPerfume {
+	display: flex;
+	flex-direction: column;
+	width: 1300px;
+ 	min-width: 1300px;
+ 	margin: 50px 0 0 100px;
+} 	
+
+#topPerfume > #topPerfumeTitle {
+	font-weight: bolder;
+	text-align: center;
+	font-size: 1.5em;
+	margin: 50px 0 50px;
+}
+
+#topPerfume > #topPerfumeList {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+
+#topPerfume > #topPerfumeList > #topPerfumeItem {
+	text-align: center;
+	width: 250px;
+	height: 400px;
+	margin: 0 15px;
+	cursor: pointer;
+	
+	
+/* 	display: inline-block;
+	vertical-align: middle;
+	transform: perspective(1px) translateZ(0);
+	box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+	transition-duration: 0.3s;
+	transition-property: box-shadow;
+	box-shadow: inset 0 0 0 4px #e1e1e1, 0 0 1px rgba(0, 0, 0, 0); */
+}
+
+#topPerfume > #topPerfumeList > #topPerfumeItem > #topPImg:hover {
+	opacity: 0.5;
+    filter: grayscale(100%);
+    transition: 0.2s;
+}
+
+#topPerfume > #topPerfumeList > #topPerfumeItem > #topPImg:active {
+	opacity: 1;
+}
+
+#topPerfume > #topPerfumeList > #topPerfumeItem > div {
+	margin-bottom: 5px;
+}
+
+
+#topPerfume > #topPerfumeList > #topPerfumeItem > #topPImg {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#topPerfume > #topPerfumeList > #topPerfumeItem > #topPImg > img {
+	margin: 20px 0;
+	width: 220px;
+	height: 220px;
+}
+
+#recPerfume {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	width: 1300px;
+ 	min-width: 1300px;
+ 	margin: 50px 0 0 100px;
+}
+
+
+#recPerfume > #recPerfumeTitle > #rec_note_nm {
+	font-size: 1.1em;
+	color: #606060;
+	margin: 0 5px;
+}
+
+#recPerfume > #recPerfumeTitle {
+	font-weight: bolder;
+	text-align: center;
+	font-size: 1.5em;
+	margin: 50px 0 0px;
+}
+
+#recPerfume > .swiper-container > .swiper-wrapper > .swiper-slide > div {
+	margin-bottom: 5px;
+	text-align: center;
+}
+
+#selDivContainer {
+	margin: 50px 0 0 100px;
+	width: 1300px;
+	min-width: 1300px;
+}
+
+#selDivContainer > #sel_div {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+
+#selDivContainer > #sel_div > .brandAlphabet {
+	text-align: center;
+	width: 230px;
+	height: 280px;
+	margin: 30px 15px;
+	cursor: pointer;
+}
+
+#selDivContainer > #sel_div > .brandAlphabet:hover {
+	opacity: 0.5;
+    filter: grayscale(100%);
+    transition: 0.2s;	
+}
+
+#selDivContainer > #sel_div > .brandAlphabet > div {
+	margin-bottom: 5px;
+}
+
+#selDivContainer > #sel_div > .brandAlphabet > div:nth-child(4) {
+	display: inline;
+	margin-right: 15px;
+}
+
+#selDivContainer > #sel_div > .brandAlphabet > div:nth-child(5) {
+	display: inline;
+}
+
+#selDivContainer > #sel_div > .brandAlphabet > img {
+	margin: 20px 0;
+	width: 180px;
+	height: 180px;
+}
+
+#paging {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 1300px;
+	height: 100px;
+	margin: 50px 0 50px 100px;
+}
+
+.perfumeMain{
+	text-align: center;
+	margin-top: 20px;
+	display: flex;  
+	flex-wrap: wrap;	
+}
+
+.swiper-container {
+	width: 100%;
+	height: 400px;
+	margin: 0 auto;
+}
+
+.swiper-slide {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	cursor: pointer;
+} 
+
+.swiper-slide:hover {
+	opacity: 0.5;
+    filter: grayscale(100%);
+    transition: 0.2s;
+}
+
+
+.swiper-slide img {
+	max-width: 100%;
+	width: 200px;
+	height: 200px;
+}
+
+.swiper-button-next {
+	right: 0;
+}
+
+.swiper-button-prev {
+	left: 0;
+}
+
+#filter{
+	width: 600px;
+	height: 100px;
+    border: 1px solid black;
+}
+
+.swiper-button-prev, .swiper-button-next, .swiper-pagination {
+	color: #535353;
+	font-weight: bolder;
+}
