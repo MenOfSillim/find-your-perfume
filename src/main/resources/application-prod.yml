@@ -1,8 +1,8 @@
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/team_project?characterEncoding=UTF-8&serverTimezone=UTC
-    username: root
-    password: rootroot
+    url: jdbc:mysql://localhost:3306/find_your_perfume?characterEncoding=UTF-8&serverTimezone=UTC
+    username: leo
+    password: 0000
     driver-class-name: com.mysql.cj.jdbc.Driver
 
 # mybatis alias & mapper 위치 설정
