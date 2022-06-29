@@ -4,4 +4,4 @@ spring:
       prefix: /WEB-INF/views/
       suffix: .jsp
   profiles:
-    active: local
+    active: prod
